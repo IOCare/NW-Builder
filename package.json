@@ -1,0 +1,13 @@
+{
+  "name": "nodeapp",
+  "main": "NW-Builder/index.html",  
+  "window": {
+    "icon": "icon.png",
+	"width" 	: 500,
+	"height"	: 550,
+	"toolbar"	: true,
+	"position": "center",
+	 "toolbar": false,
+	"frame": false
+  }
+}

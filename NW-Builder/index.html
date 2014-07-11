@@ -1,0 +1,209 @@
+<html>
+<head>
+<meta charset='utf-8'>
+    <title>NW Builder v.1.0.0</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="css/AdminLTE.css" rel="stylesheet"> -->
+    <link href="css/bootstrap.sh.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.minsh.css" rel="stylesheet"> -->
+   
+	<!-- <link href="css/bootstrapfb.css" rel="stylesheet"> -->
+	<link href="css/style.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="hammer.png" />
+
+<style type="text/css">
+	html {
+	  position: relative;
+	  min-height: 100%;
+	}
+	body {
+	  /* Margin bottom by footer height */
+	  margin-bottom: 60px;
+	}
+
+	body > .container {
+	  padding: 60px 15px 0;
+	  border:#003366;
+	}
+	.container .text-muted {
+	  margin: 20px 0;
+	}
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.navbar {
+  -webkit-app-region: drag;
+}
+button {
+  -webkit-app-region: no-drag;
+}
+a{
+-webkit-app-region: no-drag;
+}
+</style>
+</head>
+
+<body>
+
+   <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-titlebar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="icon.png" width="30" height="30" alt="" />&nbsp;&nbsp;NW Builder v.1.0.0</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about" data-toggle="modal" data-target="#myModal">About</a></li>
+            <li><a href="#contact" data-toggle="modal" data-target="#myModalc">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Content</a></li>
+                <li><a href="#">About ITA</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div id="" class="container">
+	<input id="open" type="file" style="display:none" accept="text/*"/>
+	<input id="save" type="file" nwsaveas style="display:none" accept="text/*"/>
+	<br />
+	<input type="text" id="txt" class="form-control"/>&nbsp;&nbsp;<br />
+	<input type="button" value="Open File" id="btno" class="btn btn-success"/>
+		<br /><br />
+		<textarea id="editor" rows="" cols="" class="form-control"></textarea><br /><br />
+
+		<div class="well" >
+			
+				<div id="res" style="overflow: auto;clip;height:120px">
+
+				</div>
+
+		</div>
+	
+
+	
+
+</div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">&copy; IOCare 2014 | We are using node.js &nbsp;<script>document.write(process.version+'<br />');</script></p>
+      </div>
+    </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">About ITA</h4>
+      </div>
+      <div class="modal-body">
+        <h4>NW-Builder v1.0.0</h4><br />
+		
+			An automation for building node-webkit app to exe. 
+			Most of the work is the extension of already existing repo "nodebob".
+			<br /><br />
+			Basically a cross platform tool, but i've design it specifically to be for windows. 
+			Any one interested may extend it to make cross platform by editing linux and mac 
+			specific shell script files.
+			<br /><br />
+			NW-Builder itself is Node-webkit app. 
+			Tools required for building the NW apps to exe are included in directory "buildTools"<br /><br />
+		<img src="iocareNew.png" width="100" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModalc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Contact</h4>
+      </div>
+      <div class="modal-body">
+        Crafted by<br />
+		IOCare Designer and UI Architect.<br /><br />
+		<img src="icon.png" width="96" height="96" alt="" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+<script type="text/javascript">
+<!--
+window.onload = function()
+{
+
+	var file = require('file.js');
+	var res = document.getElementById('btno');
+	var txt = document.getElementById('txt');
+
+	function clickInput(id) {
+		var event = document.createEvent('MouseEvents');
+		event.initMouseEvent('click');
+		document.getElementById(id).dispatchEvent(event);
+	}
+	 
+	document.addEventListener('keyup', function (e) {
+		if (e.keyCode == 'O'.charCodeAt(0) && e.ctrlKey) {
+			clickInput('open');
+		} else if (e.keyCode == 'G'.charCodeAt(0) && e.ctrlKey) {
+			clickInput('save');
+		}
+	});
+	document.getElementById('open').addEventListener('change', function (e) {
+		file.open(this.value, document);
+	});
+	document.getElementById('save').addEventListener('change', function (e) {
+		file.save(this.value, document);
+	});
+
+	res.addEventListener('click', function (e) {
+			clickInput('open');
+	});
+
+//initCheckbox("top-box", "top-titlebar", "top-titlebar.png", "Top Titlebar");
+ addTitlebar("top-titlebar", "top-titlebar.png", "NW-Builder v 1.0.0");
+  //document.getElementById("close-window-button").onclick = function() {
+    //window.close();
+  //}
+  updateContentStyle();
+}
+//-->
+</script>
+</body>
+</html>

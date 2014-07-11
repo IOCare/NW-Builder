@@ -1,0 +1,11 @@
+{
+  "name": "nodeapp",
+  "main": "index.html",  
+  "window": {
+    "icon": "app.ico",
+	"width" 	: 500,
+	"height"	: 600,
+	"toolbar"	: true,
+	"position": "center"
+  }
+}
