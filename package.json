@@ -1,5 +1,5 @@
 {
-  "name": "nodeapp",
+  "name": "NW-Builder",
   "main": "NW-Builder/index.html",  
   "window": {
     "icon": "icon.png",
